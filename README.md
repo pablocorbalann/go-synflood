@@ -10,7 +10,7 @@ This project is **just for Linux**, it's not available in other operative system
 ##### Prequisites
 * Git (for cloning the repository into your local computer)
 * Go (for running the app itself)
-##### sTEPS
+##### Steps
 ###### Clone the repository
 ```shell
 git clone https://github.com/PabloCorbCon/go-synflood.git
